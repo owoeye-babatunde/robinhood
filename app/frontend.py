@@ -38,3 +38,14 @@ def main_frontend():
                 time.sleep(86400)  # Check for gaps every 10 minutes (adjust as needed)
         except Exception as e:
             st.error(f"scanning stopped because {e}.")
+
+
+
+       # Data download
+    st.subheader("Trade History Data Download")
+
+    if st.button("Download Trade History"):
+        # Implement a function in main.py to retrieve trade history and save it as a CSV
+        # For example: main.download_trade_history()
+        main.download_trade_history()
+        #st.success("Trade history downloaded and saved as CSV!") 

@@ -1,7 +1,7 @@
 import robin_stocks.robinhood as rs
 import time
-import config
-from pyrh import Robinhood
+#import config
+#from pyrh import Robinhood
 import os
 from main import login, logout
 import pandas as pd
@@ -28,10 +28,27 @@ rs.orders.order_sell_option_limit(positionEffect = 'close',
                                                       optionType='both', 
                                                       account_number=account_number1)
 
+
+
+
+
+                                                          
+    if st.button("Login"):
+        try:
+            if username and password:
+                main.login(str(username), str(password))  # Call the login function from your main.py
+                st.success("Logged in successfully!")
+            else:
+                st.warning("Please enter both username and password.")
+        except Exception as e:
+            st.warning(f"you are unable to login because {e} you might also check if two factor authentication is active")
+    
+    
+
                                                 
 """
 
-from pyrh import Robinhood
+#rom pyrh import Robinhood
 
 #username = 'bayleynorwood3@gmail.com'
 #password = 'Mustang2017'

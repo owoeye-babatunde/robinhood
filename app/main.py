@@ -5,6 +5,7 @@ import time
 import os
 import pandas as pd
 from datetime import date, timedelta
+
 #import streamlit as st
 
 
@@ -17,6 +18,37 @@ from datetime import date, timedelta
  #           password=robin_pass,
   #          expiresIn=86400,
   #          by_sms=True)
+
+
+
+def login_with_2fa(username, password, twofa_code=None):
+    try:
+        # Initialize the Robinhood API session
+        login_params = {
+            "username": username,
+            "password": password,
+            "by_sms": True  # Set by_sms to True to receive SMS for 2FA
+        }
+
+        # Include the 2FA code if provided
+        if twofa_code:
+            login_params["mfa_code"] = twofa_code
+
+        # Perform the login
+        login_response = rs.login(**login_params)
+
+        # Check if the login was successful
+        if "access_token" in login_response:
+            return True, "Login successful."
+        else:
+            return False, "Login failed: Authentication token not received."
+
+    except Exception as e:
+        return False, f"Login failed: {str(e)}"
+
+
+
+
     
 
 def login(robin_user, robin_pass):
