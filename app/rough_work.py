@@ -50,8 +50,7 @@ rs.orders.order_sell_option_limit(positionEffect = 'close',
 
 #rom pyrh import Robinhood
 
-#username = 'bayleynorwood3@gmail.com'
-#password = 'Mustang2017'
+
 
 
 
